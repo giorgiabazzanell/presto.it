@@ -1,0 +1,222 @@
+/* font */
+
+* {
+    font-family: "Electrolize", sans-serif;
+}
+
+
+body,
+html {
+    overflow-x: hidden;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: "Orbitron", sans-serif;
+}
+
+/* colori root */
+:root {
+    --black: rgb(26, 26, 26);
+    --white: rgb(250, 250, 250);
+    --gold: rgb(174, 148, 109);
+}
+
+.bg-black {
+    background-color: var(--black);
+}
+
+.bg-white {
+    background-color: var(--white);
+}
+
+.bg-gold {
+    background-color: var(--gold);
+}
+
+.txt-black {
+    color: var(--black);
+}
+
+.txt-white {
+    color: var(--white);
+}
+
+.txt-gold {
+    color: var(--gold);
+}
+
+/* navbar impostazioni */
+
+.nav-custom {
+    background-color: var(--white);
+    height: 90px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    transition: 0.6s;
+    z-index: 10;
+}
+
+/* logo navbar, cambio di grandezza */
+
+.img-logo {
+    height: 52px;
+    width: 130px;
+}
+
+.nav-link {
+    color: var(--black);
+}
+
+
+/* css scrollbar che da effetto come se le cose passassero sotto la navbar, si chiama effetto plexiglass*/
+
+.nav-blur {
+    backdrop-filter: blur (5px) saturate(0.8);
+    background: rgba(100, 100, 100, 0.9);
+    border: 2px solid var(--gold);
+}
+
+
+/*header, immagine, sfumatura e grandezza*/
+header {
+    height: 100vh;
+    background: linear-gradient(rgb(250, 250, 250), rgba(250, 250, 250, 0.0)), url(./repositary/header.png);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    margin-top: 90px;
+}
+
+
+/* forms */
+.forms {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* bottone trova*/
+.btn-custom {
+    height: 40px;
+    width: 100px;
+    border: unset;
+    border-radius: 13px;
+    color: var(--black);
+    z-index: 1;
+    position: relative;
+    transition: all 250ms;
+    overflow: hidden;
+}
+
+.btn-custom::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left:0 ;
+    height: 100%;
+    width: 0;
+    border-radius: 10px;
+    background-color: var(--gold);
+    z-index: -1;
+    transition: all 250ms ;
+
+}
+.btn-custom:hover{
+    color: var(--white);
+}
+
+.btn-custom:hover::before{
+    width: 100%;
+}
+
+.logo-header{
+ width: 500px;
+ height: 200px;
+}
+
+
+/* css sezione numeri(numbers) */
+.numbers{
+    font-size: 70px;
+    color: var(--gold);
+    font-weight: bold;
+}
+
+/* gradient */
+
+.titolonubers {
+    font-size: 80px;
+    font-weight: bold;
+    background: -webkit-linear-gradient(rgb(250, 250, 250), rgb(174, 148, 109), rgb(26, 26, 26));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+
+
+
+  /* css swiper */
+
+
+
+  .swiper {
+    width: 100%;
+    height: 40vh;
+    background: var(--gold);
+  }
+
+  .swiper-slide {
+    font-size: 18px;
+    color: var(--white);
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 40px 60px;
+  }
+
+  .parallax-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 130%;
+    height: 100%;
+    background: linear-gradient(rgba(154, 151, 151, 0.428),rgba(116, 115, 115, 0.6) ), url(./repositary/foto-2.avif);
+    -webkit-background-size: cover;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .swiper-slide .title {
+    font-size: 41px;
+    font-weight: 300;
+  }
+
+  .swiper-slide .subtitle {
+    font-size: 21px;
+  }
+
+  .swiper-slide .text {
+    font-size: 14px;
+    max-width: 400px;
+    line-height: 1.3;
+  }
+
+
+  /*  Css annunci */
+  .titleAnnunci{
+    margin-top: 90px;
+  }
