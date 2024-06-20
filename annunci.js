@@ -45,6 +45,8 @@ fetch("./annunci.json").then((response) => response.json()).then((data) => {
     console.log(data);
 /* cattura elementi html */
     let categoryWrapper = document.querySelector("#categoryWrapper");
+    /* card */
+    let cardWrapper = document.querySelector(#cardWrapper);
 /* cosino per categorie */
     function setCategory(params) {
         let category = data.map((annuncio) => annuncio.category);
@@ -79,6 +81,13 @@ fetch("./annunci.json").then((response) => response.json()).then((data) => {
 
     }
     setCategory()
+
+
+    function showCard(array) {
+
+        
+        
+    }
 
 
 
