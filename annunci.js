@@ -34,3 +34,53 @@ function changeNavbar(background, imglogo, color1, color2, color3) {
         });
     });
 };
+
+
+
+
+
+/* chiamata asincrona per collegare foglio di lavoro con qualsiasi foglio esterno ad uno interno */
+
+fetch("./annunci.json").then((response) => response.json()).then((data) => {
+    console.log(data);
+/* cattura elementi html */
+    let categoryWrapper = document.querySelector("#categoryWrapper");
+/* cosino per categorie */
+    function setCategory(params) {
+        let category = data.map((annuncio) => annuncio.category);
+        let uniqueCategory = [];
+
+        category.forEach((category) => {
+            if (!uniqueCategory.includes(category)) {
+                uniqueCategory.push(category);
+
+            }
+
+        });
+
+        uniqueCategory.forEach((category) => {
+            let div = document.createElement('div');
+
+            div.classList.add('form-check');
+            div.innerHTML = `
+            
+        <input class="form-check-input" type="radio" name="category" id="${category}">
+        <label class="form-check-label" for="${category}">
+        ${category}
+        </label>
+            
+            
+            `
+            categoryWrapper.appendChild(div);
+        }
+        )
+
+
+
+    }
+    setCategory()
+
+
+
+});
+
