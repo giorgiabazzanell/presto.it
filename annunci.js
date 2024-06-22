@@ -43,11 +43,14 @@ function changeNavbar(background, imglogo, color1, color2, color3) {
 
 fetch("./annunci.json").then((response) => response.json()).then((data) => {
     console.log(data);
-/* cattura elementi html */
+    /* cattura elementi html */
     let categoryWrapper = document.querySelector("#categoryWrapper");
     /* card */
-    let cardWrapper = document.querySelector(#cardWrapper);
-/* cosino per categorie */
+    let cardWrapper = document.querySelector("#cardWrapper");
+
+
+
+    /* cosino per categorie */
     function setCategory(params) {
         let category = data.map((annuncio) => annuncio.category);
         let uniqueCategory = [];
@@ -70,26 +73,73 @@ fetch("./annunci.json").then((response) => response.json()).then((data) => {
         <label class="form-check-label" for="${category}">
         ${category}
         </label>
-            
-            
+
             `
             categoryWrapper.appendChild(div);
         }
-        )
+        );
 
 
 
     }
     setCategory()
 
+    /* card */
+
 
     function showCard(array) {
 
-        
-        
+        array.sort((a, b) => a.price - b.price);
+
+        cardWrapper.innerHTML = ``;
+
+        array.forEach((annuncio) => {
+            let div = document.createElement("div");
+            div.classList.add("card", "mb-4");
+            div.style.width = "16rem";
+            div.innerHTML = `
+            <img src="${annuncio.image}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">${annuncio.name}</h5>
+                  <p class="card-text">${annuncio.category}</p>
+                  <a href="#" class="btn btn-primary">${annuncio.price}</a>
+            `
+            cardWrapper.appendChild(div);
+
+
+
+
+
+
+
+        });
     }
 
+    showCard(data);
+
+
+    //input radio
+
+    let radios = document.querySelectorAll(".form-check-input");
+
+
+
+    function filteredByCategory() {
+        let checked = Array.from(radios).find((button) => button.checked);
+        let categoria = checked.id;
+
+        let filtered = data.filter((annuncio) => annuncio.category == categoria);
+        showCard(filtered);
+    }
+    filteredByCategory();
+
+    radios.forEach((button) => {
+        button.addEventListener("click", () => {
+            filteredByCategory()
+        })
+    })
 
 
 });
+
 
